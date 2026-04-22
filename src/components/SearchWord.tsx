@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGetWordInfoQuery } from "../store/dictionaryQuery.ts";
 import WordSearchCard from "./WordSearchCard.tsx";
 
 const SearchWord: React.FC = () => {
   const [input, setInput] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   const { data, isLoading, isError } = useGetWordInfoQuery(searchTerm, {
     skip: searchTerm === "",
@@ -21,13 +26,14 @@ const SearchWord: React.FC = () => {
     <div className="mt-20 flex flex-col items-center justify-center">
       <div className="flex gap-2 mb-2">
         <input
+          ref={inputRef}
           className=" p-1 border rounded-lg"
           placeholder="search...."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
         <button
-          className="border rounded-lg p-2 hover:bg-gray-100 transition delay-100 cursor-pointer"
+          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold rounded-xl shadow-md transition-all duration-200"
           disabled={isLoading}
           onClick={handleButtonSearch}
         >
