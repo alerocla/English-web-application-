@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+🇬🇧 My Dictionary App
+An interactive English learning application built with React and TypeScript. It allows users to search for new words via a public API, save them to a personal dictionary, and practice using a built-in training mode.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Key Features
+Word Search: Integrated with the Free Dictionary API to fetch real-time definitions and data.
 
-Currently, two official plugins are available:
+Personal Dictionary: Save words to a local state (Redux) with status tracking (new, learning, learned).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Smart Filtering: Filter and sort your word list based on study progress.
 
-## React Compiler
+Training Mode: An interactive flashcard-style trainer with input validation to help memorize words.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Enhanced UX: Keyboard support (Enter key to submit), automatic input focusing, and smooth UI transitions.
 
-## Expanding the ESLint configuration
+🛠 Tech Stack
+Frontend: React 18 + TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+State Management: Redux Toolkit (Slices & Actions)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Data Fetching: RTK Query (efficient API communication)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Styling: Tailwind CSS (Utility-first CSS)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Architecture: Component-based architecture with "Lifting State Up" patterns.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📦 Getting Started
+Clone the repository:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Bash
+git clone https://github.com/your-username/my-dictionary.git
+Install dependencies:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bash
+npm install
+Run the development server:
+
+Bash
+npm run dev
