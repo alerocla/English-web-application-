@@ -21,8 +21,20 @@ const dictionarySlice = createSlice({
       state.words = state.words.filter((word) => word.id !== action.payload);
       localStorage.setItem("words", JSON.stringify(state.words));
     },
+    changeWordStatus(
+      state,
+      action: PayloadAction<{ id: string; status: IWord["status"] }>,
+    ) {
+      const { id, status } = action.payload;
+      const findWord = state.words.find((word) => word.id === id);
+      if (findWord) {
+        findWord.status = status;
+      }
+      localStorage.setItem("words", JSON.stringify(state.words));
+    },
   },
 });
 
-export const { addWord, deleteWord } = dictionarySlice.actions;
+export const { addWord, deleteWord, changeWordStatus } =
+  dictionarySlice.actions;
 export default dictionarySlice.reducer;

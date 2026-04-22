@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { IWord } from "../types/word.ts";
+import { useAppDispatch } from "../store/store.ts";
+import { changeWordStatus } from "../store/dictionarySlice.ts";
 
 interface Props {
   word: IWord;
@@ -10,6 +12,7 @@ const TrainingInput: React.FC<Props> = ({ word, getWord }) => {
   const [inp, setInp] = useState("");
   const [correct, setCorrect] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -21,6 +24,7 @@ const TrainingInput: React.FC<Props> = ({ word, getWord }) => {
       setInp("");
       setCorrect(true);
       getWord();
+      dispatch(changeWordStatus({ id: word.id, status: "learning" }));
     } else {
       setCorrect(false);
       alert("Wrong word");
