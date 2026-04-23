@@ -9,7 +9,7 @@ const WordSort: React.FC<Props> = ({ setFilterStatus }) => {
   const statuses: IWord["status"][] = ["new", "learning", "learned"];
   return (
     <select
-      className="p-2 border rounded-lg bg-white shadow-sm"
+      className="p-2 border rounded-lg bg-white shadow-sm mt-3"
       onChange={(e) => setFilterStatus(e.target.value as IWord["status"] | "")}
     >
       <option value="">All Words</option>
