@@ -27,7 +27,7 @@ Architecture: Component-based architecture with "Lifting State Up" patterns.
 Clone the repository:
 
 Bash
-git clone https://github.com/your-username/my-dictionary.git
+git clone https://github.com/alerocla/English-web-application-.git
 Install dependencies:
 
 Bash
